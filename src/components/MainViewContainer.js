@@ -59,7 +59,7 @@ const MainViewContaier = () => {
       const filteredData = allData.filter((item) => item.type === filter);
       setData(filteredData);
     }
-  }, [filter]);
+  }, [filter, setData, allData]);
 
   useEffect(() => {
     axios
@@ -85,7 +85,7 @@ const MainViewContaier = () => {
   if (data === null) {
     return <h2>Loading </h2>; //LOADBAR EKLE
   }
-
+  console.log(allData, "all data");
   return (
     <Paper
       id="fullheight"

@@ -62,7 +62,10 @@ const SSearchIconWrapper = styled.div`
 
 function SearchBar() {
   const [input, setInput] = useState();
+  // eslint-disable-next-line
   const [filteredEczane, setfilteredEczane] = useState([]);
+
+  // eslint-disable-next-line
   const [eczaneData, setEczaneData] = useState();
 
   useEffect(() => {
@@ -75,20 +78,6 @@ function SearchBar() {
         console.log(err);
       });
   }, [filteredEczane]);
-  const filter = (e) => {
-    const keyword = e.target.value;
-
-    if (keyword !== "") {
-      const results = eczaneData.filter((eczane) => {
-        return eczane.name.toLowerCase().startsWith(keyword.toLowerCase());
-      });
-      setfilteredEczane(results);
-    } else {
-      setfilteredEczane(eczaneData);
-    }
-
-    setInput(keyword);
-  };
 
   return (
     <SSearchBoxWrapper>
